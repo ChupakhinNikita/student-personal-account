@@ -1,0 +1,72 @@
+﻿@model webUniversity.Models.User
+
+@{
+    ViewData["Title"] = "Просмотр данных пользователей";
+}
+@section Header {
+    <div class="header_section">
+        <div class="header_title">
+            <p>УНИВЕРСИТЕТ</p>
+            <div class="header_divider"> </div>
+            <div class="header_portal_title">
+                <p>ОБРАЗОВАТЕЛЬНЫЙ ПОРТАЛ ТЕХНИЧЕСКОГО УНИВЕРСИТЕТА</p>
+            </div>
+        </div>
+    </div>
+    <div class="header_section">
+        <div class="header_account">
+            <div class="back-btn">
+                <a asp-action="Admin" asp-controller="Home">Главная</a>
+            </div>
+            <div class="back-btn">
+                <a asp-action="Logout" asp-controller="Account">Выйти из аккаунта</a>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="student_main">
+    <h1>Данные пользователя </h1>
+    <div class="details_main">
+        <dl class="myRowDetails">
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.authID)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.authID)
+            </dd>
+            <dt class = "col-sm-2">
+                Роль
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.role)
+            </dd>
+        </dl>
+        <dl class="myRowDetails">
+            <dt class = "col-sm-2">
+                Логин
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.login)
+            </dd>
+            <dt class = "col-sm-2">
+                Пароль
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.password)
+            </dd>
+        </dl>
+    </div>
+    <div class="buttons">
+        <div class="form-group_btn_1">
+            <a asp-action="Edit" asp-route-id="@Model?.userID"><input type="submit" value="Изменить" class="btn btn-primary" /></a>
+        </div>
+        <div class="form-group_btn_2">
+            <a asp-action="Index">
+                <input value="Отмена" class="btn btn-primary" readonly="readonly"> 
+            </a>
+        </div>
+    </div>
+</div>
+
+

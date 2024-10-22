@@ -1,0 +1,70 @@
+﻿@model IEnumerable<webUniversity.Models.ControlPeriod>
+
+@{
+    ViewData["Title"] = "Контрольный период";
+}
+
+@section Header {
+    <div class="header_section">
+        <div class="header_title">
+            <p>УНИВЕРСИТЕТ</p>
+            <div class="header_divider"> </div>
+            <div class="header_portal_title">
+                <p>ОБРАЗОВАТЕЛЬНЫЙ ПОРТАЛ ТЕХНИЧЕСКОГО УНИВЕРСИТЕТА</p>
+            </div>
+        </div>
+    </div>
+    <div class="header_section">
+        <div class="header_account">
+            <div class="back-btn">
+                <a asp-action="Create">Создать</a>
+            </div>
+            <div class="back-btn">
+                <a asp-action="Index" asp-controller="Employee">Заявления</a>
+            </div>
+            <div class="back-btn">
+                <a asp-action="Logout" asp-controller="Account">Выйти из аккаунта</a>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="student_main">
+    <h1>Контрольный период</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Код
+                </th>
+                <th>
+                    Название
+                </th>
+                <th>
+                    Индекс
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.code)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.index)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.controlPeriodID">Изменить</a> |
+                        <a asp-action="Details" asp-route-id="@item.controlPeriodID">Детали</a> |
+                        <a asp-action="Delete" asp-route-id="@item.controlPeriodID">Удаление</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,86 @@
+﻿@model IEnumerable<webUniversity.Models.Speciality>
+
+@{
+    ViewData["Title"] = "Index";
+}
+@section Header {
+        <div class="header_section">
+            <div class="header_title">
+                <p>УНИВЕРСИТЕТ</p>
+                <div class="header_divider"> </div>
+                <div class="header_portal_title">
+                    <p>ОБРАЗОВАТЕЛЬНЫЙ ПОРТАЛ ТЕХНИЧЕСКОГО УНИВЕРСИТЕТА</p>
+                </div>
+            </div>
+        </div>
+        <div class="header_section">
+            <div class="header_account">
+                <div class="back-btn">
+                    <a asp-action="Create">Создать</a>
+                </div>
+                <div class="back-btn">
+                    <a asp-action="Index" asp-controller="StudentRedactor">Главная страница</a>
+                </div>
+                <div class="back-btn">
+                    <a asp-action="Logout" asp-controller="Account">Выйти из аккаунта</a>
+                </div>
+            </div>
+        </div>
+}
+<div class="student_main">
+    <h1>Специальности</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Код
+                </th>
+                <th>
+                    Название
+                </th>
+                <th>
+                    Доп. название
+                </th>
+                <th>
+                    Код специальности
+                </th>
+                <th>
+                    Количество групп
+                </th>
+                <th>
+                    Отрасль науки
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.addName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.specialityCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.largeGroup)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.branchScience)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.specialityID">Изменить</a> |
+                    <a asp-action="Details" asp-route-id="@item.specialityID">Детали</a> |
+                    <a asp-action="Delete" asp-route-id="@item.specialityID">Удалить</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

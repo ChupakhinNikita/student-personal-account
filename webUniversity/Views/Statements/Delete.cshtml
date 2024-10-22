@@ -1,0 +1,123 @@
+﻿@model webUniversity.Models.Statement
+
+@{
+    ViewData["Title"] = "Delete";
+}
+@section Header {
+        <div class="header_section">
+            <div class="header_title">
+                <p>УНИВЕРСИТЕТ</p>
+                <div class="header_divider"> </div>
+                <div class="header_portal_title">
+                    <p>ОБРАЗОВАТЕЛЬНЫЙ ПОРТАЛ ТЕХНИЧЕСКОГО УНИВЕРСИТЕТА</p>
+                </div>
+            </div>
+        </div>
+        <div class="header_section">
+            <div class="header_account">
+                <div class="back-btn">
+                <a asp-action="Index" asp-controller="Employee">Заявления</a>
+                </div>
+                <div class="back-btn">
+                    <a asp-action="Logout" asp-controller="Account">Выйти из аккаунта</a>
+                </div>
+            </div>
+        </div>
+}
+
+<div class="student_main">
+    <h1>Удаление преподавателя</h1>
+    <div class="delete_main">
+        <dl class="myRowDel">
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.code)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.code)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.date)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.date)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.timeStart)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.timeStart)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.timeEnd)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.timeEnd)
+            </dd>
+        </dl>
+        <dl class="myRowDel">
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.isIndividual)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.isIndividual)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.StatementType)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.StatementType.statementTypeID)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.ControlForm)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.ControlForm.controlFormID)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Discipline)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Discipline.disciplineID)
+            </dd>
+        </dl>
+        <dl class="myRowDel">
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.ControlPeriod)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.ControlPeriod.controlPeriodID)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Mark)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Mark.markID)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Professor)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Professor.professorID)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Student)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Student.studentID)
+            </dd>
+        </dl>
+    </div>
+    <form asp-action="Delete">
+        <div class="buttons">
+            <div class="form-group_btn_1">
+                <input type="hidden" asp-for="statementID" />
+                <input type="submit" value="Delete" class="btn btn-primary" />
+            </div>
+            <div class="form-group_btn_2">
+                <a asp-action="Index">
+                    <input value="Cancel" class="btn btn-primary" readonly="readonly"> 
+                </a>
+            </div>
+        </div>
+    </form>
+</div>

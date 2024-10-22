@@ -1,0 +1,122 @@
+﻿@model IEnumerable<webUniversity.Models.Statement>
+
+@{
+    ViewData["Title"] = "Index";
+}
+@section Header {
+        <div class="header_section">
+            <div class="header_title">
+                <p>УНИВЕРСИТЕТ</p>
+                <div class="header_divider"> </div>
+                <div class="header_portal_title">
+                    <p>ОБРАЗОВАТЕЛЬНЫЙ ПОРТАЛ ТЕХНИЧЕСКОГО УНИВЕРСИТЕТА</p>
+                </div>
+            </div>
+        </div>
+        <div class="header_section">
+            <div class="header_account">
+                <div class="back-btn">
+                    <a asp-action="Create">Создать</a>
+                </div>
+                <div class="back-btn">
+                <a asp-action="Index" asp-controller="Employee">Заявления</a>
+                </div>
+                <div class="back-btn">
+                    <a asp-action="Logout" asp-controller="Account">Выйти из аккаунта</a>
+                </div>
+            </div>
+        </div>
+}
+<div class="student_main">
+    <h1>Заявления</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.code)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.timeStart)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.timeEnd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.isIndividual)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StatementType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ControlForm)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Discipline)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ControlPeriod)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Mark)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Professor)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Student)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.timeStart)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.timeEnd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isIndividual)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StatementType.statementTypeID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ControlForm.controlFormID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Discipline.disciplineID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ControlPeriod.controlPeriodID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mark.markID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Professor.professorID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Student.studentID)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.statementID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.statementID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.statementID">Delete</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

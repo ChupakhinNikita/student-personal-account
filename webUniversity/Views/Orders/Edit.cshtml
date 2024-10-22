@@ -1,0 +1,94 @@
+﻿@model webUniversity.Models.Orders
+
+@{
+    ViewData["Title"] = "Edit";
+}
+@section Header {
+        <div class="header_section">
+            <div class="header_title">
+                <p>УНИВЕРСИТЕТ</p>
+                <div class="header_divider"> </div>
+                <div class="header_portal_title">
+                    <p>ОБРАЗОВАТЕЛЬНЫЙ ПОРТАЛ ТЕХНИЧЕСКОГО УНИВЕРСИТЕТА</p>
+                </div>
+            </div>
+        </div>
+        <div class="header_section">
+            <div class="header_account">
+                <div class="back-btn">
+                <a asp-action="Index1" asp-controller="Employee">Приказы</a>
+                </div>
+                <div class="back-btn">
+                    <a asp-action="Logout" asp-controller="Account">Выйти из аккаунта</a>
+                </div>
+            </div>
+        </div>
+}
+<h1>Edit</h1>
+
+<h4>Orders</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ordersID" />
+            <div class="form-group">
+                <label asp-for="code" class="control-label"></label>
+                <input asp-for="code" class="form-control" />
+                <span asp-validation-for="code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="isImplemented" class="control-label"></label>
+                <input asp-for="isImplemented" class="form-control" />
+                <span asp-validation-for="isImplemented" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="number" class="control-label"></label>
+                <input asp-for="number" class="form-control" />
+                <span asp-validation-for="number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="title" class="control-label"></label>
+                <input asp-for="title" class="form-control" />
+                <span asp-validation-for="title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="data" class="control-label"></label>
+                <input asp-for="data" class="form-control" />
+                <span asp-validation-for="data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dataStart" class="control-label"></label>
+                <input asp-for="dataStart" class="form-control" />
+                <span asp-validation-for="dataStart" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dataEnd" class="control-label"></label>
+                <input asp-for="dataEnd" class="form-control" />
+                <span asp-validation-for="dataEnd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="studentID" class="control-label"></label>
+                <select asp-for="studentID" class="form-control" asp-items="ViewBag.studentID"></select>
+                <span asp-validation-for="studentID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="orderTypeID" class="control-label"></label>
+                <select asp-for="orderTypeID" class="form-control" asp-items="ViewBag.orderTypeID"></select>
+                <span asp-validation-for="orderTypeID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

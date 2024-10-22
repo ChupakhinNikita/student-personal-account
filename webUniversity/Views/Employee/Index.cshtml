@@ -1,0 +1,70 @@
+﻿@using System.Security.Claims
+
+@model webUniversity.Models.User
+
+@{
+    ViewData["Title"] = "Работник вуза";
+}
+
+@section Header {
+    <div class="header_section">
+        <div class="header_title">
+            <p>УНИВЕРСИТЕТ</p>
+            <div class="header_divider"> </div>
+            <div class="header_portal_title">
+                <p>ОБРАЗОВАТЕЛЬНЫЙ ПОРТАЛ ТЕХНИЧЕСКОГО УНИВЕРСИТЕТА</p>
+            </div>
+        </div>
+    </div>
+    <div class="header_section">
+        <div class="header_account">
+            <div class="back-btn">
+                <a asp-action="Teacher" asp-controller="Home">Главная</a>
+            </div>
+            <div class="back-btn">
+                <a asp-action="Logout" asp-controller="Account">Выйти из аккаунта</a>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="student_main">
+    <h1>Заявления</h1>
+    <div class="student_buttons">
+        <a class="navbar-account" asp-controller="Students" asp-action="Index">
+            Студенты
+        </a>
+
+        <a class="navbar-account" asp-controller="ControlForms" asp-action="Index">
+            Форма контроля
+        </a>
+
+        <a class="navbar-account" asp-controller="ControlPeriods" asp-action="Index">
+            Период контроля
+        </a>
+
+        <a class="navbar-account" asp-controller="Disciplines" asp-action="Index">
+            Дисциплины
+        </a>
+
+     </div>
+    <div class="student_buttons">
+        <a class="navbar-account" asp-controller="Professors" asp-action="Index">
+            Преподователи
+        </a>
+        <a class="navbar-account" asp-controller="Statements" asp-action="Index">
+            Заявления
+        </a>
+
+        <a class="navbar-account" asp-controller="StatementTypes" asp-action="Index">
+            Тип заявления
+        </a>
+
+        <a class="navbar-account" asp-controller="Marks" asp-action="Index">
+            Метки
+        </a>
+
+    </div>
+<div class="student_buttons">
+</div>
+</div>

@@ -1,0 +1,47 @@
+﻿@using System.Security.Claims
+
+@model webUniversity.Models.User
+
+@{
+    ViewData["Title"] = "Работник вуза";
+}
+
+@section Header {
+    <div class="header_section">
+        <div class="header_title">
+            <p>УНИВЕРСИТЕТ</p>
+            <div class="header_divider"> </div>
+            <div class="header_portal_title">
+                <p>ОБРАЗОВАТЕЛЬНЫЙ ПОРТАЛ ТЕХНИЧЕСКОГО УНИВЕРСИТЕТА</p>
+            </div>
+        </div>
+    </div>
+    <div class="header_section">
+        <div class="header_account">
+            <div class="back-btn">
+                <a asp-action="Teacher" asp-controller="Home">Главная</a>
+            </div>
+            <div class="back-btn">
+                <a asp-action="Logout" asp-controller="Account">Выйти из аккаунта</a>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="student_main">
+    <h1>Приказы</h1>
+    <div class="student_buttons">
+        <a class="navbar-account" asp-controller="Students" asp-action="Index">
+            Студенты
+        </a>
+
+        <a class="navbar-account" asp-controller="Orders" asp-action="Index">
+            Приказы
+        </a>
+
+        <a class="navbar-account" asp-controller="OrderTypes" asp-action="Index">
+            Тип приказов
+        </a>
+
+    </div>
+</div>

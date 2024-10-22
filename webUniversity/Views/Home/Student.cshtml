@@ -1,0 +1,98 @@
+﻿@model webUniversity.Models.Student
+@{
+    ViewData["Title"] = "Студент";
+}
+
+@section Header {
+    <div class="header_section">
+        <div class="header_title">
+            <p>УНИВЕРСИТЕТ</p>
+            <div class="header_divider"> </div>
+            <div class="header_portal_title">
+                <p>ОБРАЗОВАТЕЛЬНЫЙ ПОРТАЛ ТЕХНИЧЕСКОГО УНИВЕРСИТЕТА</p>
+            </div>
+        </div>
+    </div>
+}
+
+@section nav {
+    <nav>
+        <div class="navbar_section">
+            <div class="navbar_buttons">
+                <a asp-action="Student" asp-controller="Home"> <div class="navigation_button">Главная</div> </a>
+                <div class="navbar_button_divider"></div>
+                <a href="#">Расписание</a>
+                <div class="navbar_button_divider"></div>
+                <a asp-action="RecordBook" asp-controller="Home">Зачетная книжка</a>
+                <div class="navbar_button_divider"></div>
+                <a href="#">Учебные планы</a>
+                <div class="navbar_button_divider"></div>
+                <a href="#">Моя группа</a>
+                <div class="navbar_button_divider"></div>
+                <a href="#">Расписание</a>
+                <div class="navbar_button_divider"></div>
+                <a href="#">Портфолио</a>
+                <div class="navbar_button_divider"></div>
+                <a asp-action="Orders" asp-controller="Home">Приказы</a>
+            </div>
+            <div class="navbar_buttons">
+                <a href="#">Помощь</a>
+                <div class="navbar_button_divider"></div>
+                <a href="#">Настройки</a>
+                <div class="navbar_button_divider"></div>
+                <a asp-action="Logout" asp-controller="Account">Выйти</a>
+            </div>
+        </div>
+    </nav>
+}
+
+
+<div class="main_right_section">
+    <div class="main_right_top_student_info">
+        <div class="student_info_INFO">
+            Информация о студенте
+        </div>
+    </div>
+
+    <div class="main_right_top_student_FIO">
+        <div class="main_right_top_account">
+            <img src="~/img/account.svg" alt="">
+        </div>
+        <div class="student_info_FIO">
+            @Model.lastName @Model.firstName @Model.patronomic @Model.Group.name
+        </div>
+    </div>
+
+    <div class="main_right_bottom_section">
+        <div class="student_info">
+            <div class="student_info_field">@Model.gradebook</div>
+            <p class="student_info_field_name">Номер зачетной книжки</p>
+            <div class="student_info_field">@Model.Faculty.name</div>
+            <p class="student_info_field_name">Факультет</p>
+        </div>
+        <div class="student_info">
+            <div class="student_info_field">@Model.Speciality.name</div>
+            <p class="student_info_field_name">Направление подготовки/Специальность</p>
+            <div class="student_info_field">@Model.Specialization.name</div>
+            <p class="student_info_field_name">Профиль/Специализация</p>
+        </div>
+        <div class="student_info">
+            <div class="student_info_field">@Model.Course.name</div>
+            <p class="student_info_field_name">Курс</p>
+            <div class="student_info_field">@Model.TrainingLevel.name</div>
+            <p class="student_info_field_name">Уровень образования</p>
+        </div>
+        <div class="student_info">
+            <div class="student_info_field">@Model.TuitionType.name</div>
+            <p class="student_info_field_name">Тип обучения</p>
+            <div class="student_info_field">@Model.TuitionForm.name</div>
+            <p class="student_info_field_name">Форма обучения</p>
+        </div>
+        <div class="student_info">
+            <div class="student_info_field">@Model.StudentStatus.name</div>
+            <p class="student_info_field_name">Статус студента</p>
+            <div class="student_info_field">@Model.studentID</div>
+            <p class="student_info_field_name">Уникальный идентификатор студента</p>
+        </div>
+    </div>
+</div>

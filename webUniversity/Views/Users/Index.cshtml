@@ -1,0 +1,77 @@
+﻿@model IEnumerable<webUniversity.Models.User>
+
+@{
+    ViewData["Title"] = "Пользователи";
+}
+
+@section Header {
+    <div class="header_section">
+        <div class="header_title">
+            <p>УНИВЕРСИТЕТ</p>
+            <div class="header_divider"> </div>
+            <div class="header_portal_title">
+                <p>ОБРАЗОВАТЕЛЬНЫЙ ПОРТАЛ ТЕХНИЧЕСКОГО УНИВЕРСИТЕТА</p>
+            </div>
+        </div>
+    </div>
+    <div class="header_section">
+        <div class="header_account">
+            <div class="back-btn">
+                <a asp-action="Create">Добавить пользователя</a>
+            </div>
+            <div class="back-btn">
+                <a asp-action="Admin" asp-controller="Home">Главная</a>
+            </div>
+            <div class="back-btn">
+                <a asp-action="Logout" asp-controller="Account">Выйти из аккаунта</a>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="student_main">
+    <h1>Все пользователи системы</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.authID)
+                </th>
+                <th>
+                    Роль
+                </th>
+                <th>
+                    Логин
+                </th>
+                <th>
+                    Пароль
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.authID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.role)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.login)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.password)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.userID">Изменить</a> |
+                    <a asp-action="Details" asp-route-id="@item.userID">Детали</a> |
+                    <a asp-action="Delete" asp-route-id="@item.userID">Удалить</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>
+</div>

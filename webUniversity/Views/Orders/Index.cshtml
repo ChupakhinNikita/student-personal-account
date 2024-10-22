@@ -1,0 +1,103 @@
+﻿@model IEnumerable<webUniversity.Models.Orders>
+
+@{
+    ViewData["Title"] = "Index";
+}
+@section Header {
+        <div class="header_section">
+            <div class="header_title">
+                <p>УНИВЕРСИТЕТ</p>
+                <div class="header_divider"> </div>
+                <div class="header_portal_title">
+                    <p>ОБРАЗОВАТЕЛЬНЫЙ ПОРТАЛ ТЕХНИЧЕСКОГО УНИВЕРСИТЕТА</p>
+                </div>
+            </div>
+        </div>
+        <div class="header_section">
+            <div class="header_account">
+                <div class="back-btn">
+                <a asp-action="Index1" asp-controller="Employee">Приказы</a>
+                </div>
+                <div class="back-btn">
+                    <a asp-action="Logout" asp-controller="Account">Выйти из аккаунта</a>
+                </div>
+            </div>
+        </div>
+}
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isImplemented)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dataStart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dataEnd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isImplemented)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dataStart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dataEnd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.studentID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderType.orderTypeID)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ordersID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ordersID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ordersID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

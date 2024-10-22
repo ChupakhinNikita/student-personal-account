@@ -1,0 +1,142 @@
+﻿@model IEnumerable<webUniversity.Models.Student>
+
+@{
+    ViewData["Title"] = "Студенты";
+}
+
+@section Header {
+        <div class="header_section">
+            <div class="header_title">
+                <p>УНИВЕРСИТЕТ</p>
+                <div class="header_divider"> </div>
+                <div class="header_portal_title">
+                    <p>ОБРАЗОВАТЕЛЬНЫЙ ПОРТАЛ ТЕХНИЧЕСКОГО УНИВЕРСИТЕТА</p>
+                </div>
+            </div>
+        </div>
+        <div class="header_section">
+            <div class="header_account">
+                <div class="back-btn">
+                    <a asp-action="Create">Создать</a>
+                </div>
+                <div class="back-btn">
+                    <a asp-action="Index" asp-controller="StudentRedactor">Главная страница</a>
+                </div>
+                <div class="back-btn">
+                    <a asp-action="Logout" asp-controller="Account">Выйти из аккаунта</a>
+                </div>
+            </div>
+        </div>
+}
+
+<div class="student_main">
+    <h1>Студенты</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Код студента
+                </th>
+                <th>
+                    Зачеткая книжка
+                </th>
+                <th>
+                    Фамилия
+                </th>
+                <th>
+                    Имя
+                </th>
+                <th>
+                    Отчество
+                </th>
+                <th>
+                    ID Группа
+                </th>
+                <th>
+                    ID Тип обучения
+                </th>
+                <th>
+                    ID Форма обучения
+                </th>
+                <th>
+                    ID Уровень образования
+                </th>
+                <th>
+                    ID Статус студента
+                </th>
+                <th>
+                    ID Специалность
+                </th>
+                <th>
+                    ID Специализация
+                </th>
+                <th>
+                    ID Курс
+                </th>
+                <th>
+                    ID Пользователь
+                </th>
+                <th>
+                    ID Факультет
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.code)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.gradebook)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.lastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.firstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.patronomic)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Group.groupID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TuitionType.tuitionTypelID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TuitionForm.tuitionFormlID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TrainingLevel.trainingLevelID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StudentStatus.studentStatusTypeID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Speciality.specialityID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Specialization.specializationID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Course.courseID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User.userID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Faculty.facultyID)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.studentID">Изм.</a> |
+                        <a asp-action="Details" asp-route-id="@item.studentID">См.</a> |
+                        <a asp-action="Delete" asp-route-id="@item.studentID">Удалить</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

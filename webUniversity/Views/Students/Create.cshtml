@@ -1,0 +1,121 @@
+﻿@model webUniversity.Models.Student
+
+@{
+    ViewData["Title"] = "Создание нового студента";
+}
+
+@section Header {
+    <div class="header_section">
+        <div class="header_title">
+            <p>УНИВЕРСИТЕТ</p>
+            <div class="header_divider"> </div>
+            <div class="header_portal_title">
+                <p>ОБРАЗОВАТЕЛЬНЫЙ ПОРТАЛ ТЕХНИЧЕСКОГО УНИВЕРСИТЕТА</p>
+            </div>
+        </div>
+    </div>
+    <div class="header_section">
+        <div class="header_account">
+            <div class="back-btn">
+                <a asp-action="Index" asp-controller="StudentRedactor">Редактирование студентов</a>
+            </div>
+            <div class="back-btn">
+                <a asp-action="Logout" asp-controller="Account">Выйти из аккаунта</a>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="student_main">
+    <h1>Добавление  нового студента</h1>
+    <form asp-action="Create">
+        <div class="student_row">
+            <div class="col-md-4"> 
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="code" class="control-label">Код</label>
+                    <input asp-for="code" class="form-control" />
+                    <span asp-validation-for="code" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="gradebook" class="control-label">Зачетная книжка</label>
+                    <input asp-for="gradebook" class="form-control" />
+                    <span asp-validation-for="gradebook" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="lastName" class="control-label">Фамилия</label>
+                    <input asp-for="lastName" class="form-control" />
+                    <span asp-validation-for="lastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="firstName" class="control-label">Имя</label>
+                    <input asp-for="firstName" class="form-control" />
+                    <span asp-validation-for="firstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="patronomic" class="control-label">Отчество</label>
+                    <input asp-for="patronomic" class="form-control" />
+                    <span asp-validation-for="patronomic" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="groupID" class="control-label">ID Группы</label>
+                    <select asp-for="groupID" class ="form-control" asp-items="ViewBag.groupID"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="tuitionTypeID" class="control-label">ID Типа обучения</label>
+                    <select asp-for="tuitionTypeID" class ="form-control" asp-items="ViewBag.tuitionTypeID"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="tuitionFormID" class="control-label">ID Формы обучения</label>
+                    <select asp-for="tuitionFormID" class ="form-control" asp-items="ViewBag.tuitionFormID"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="trainingLevelID" class="control-label">ID Уровня обучения</label>
+                    <select asp-for="trainingLevelID" class ="form-control" asp-items="ViewBag.trainingLevelID"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="studentStatusID" class="control-label">ID Статуса студента</label>
+                    <select asp-for="studentStatusID" class ="form-control" asp-items="ViewBag.studentStatusID"></select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="specialityID" class="control-label">ID Специальности</label>
+                    <select asp-for="specialityID" class ="form-control" asp-items="ViewBag.specialityID"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="specializationID" class="control-label">ID Сспециализации</label>
+                    <select asp-for="specializationID" class ="form-control" asp-items="ViewBag.specializationID"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="courseID" class="control-label">ID Курса</label>
+                    <select asp-for="courseID" class ="form-control" asp-items="ViewBag.courseID"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="userID" class="control-label">ID Пользователя</label>
+                    <select asp-for="userID" class ="form-control" asp-items="ViewBag.userID"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="facultyID" class="control-label">ID Факультета</label>
+                    <select asp-for="facultyID" class ="form-control" asp-items="ViewBag.facultyID"></select>
+                </div>
+            </div>
+        </div>
+        <div class="buttons">
+            <div class="form-group_btn_1">
+                <input type="submit" value="Создать" class="btn btn-primary" />
+            </div>
+            <div class="form-group_btn_2">
+                <a asp-action="Index">
+                    <input value="Отмена" class="btn btn-primary" readonly="readonly"> 
+                </a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
